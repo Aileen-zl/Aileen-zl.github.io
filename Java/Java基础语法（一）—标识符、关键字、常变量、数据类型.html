@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Java基础语法（一）—标识符、关键字、常变量、数据类型 | Aileen-zl</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="标识符、关键字、常变量、数据类型">
+<meta name="keywords" content="java,标识符,关键字,数据类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础语法（一）—标识符、关键字、常变量、数据类型">
+<meta property="og:url" content="http://Aileen-zl.github.io/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html">
+<meta property="og:site_name" content="Aileen-zl">
+<meta property="og:description" content="标识符、关键字、常变量、数据类型">
+<meta property="og:image" content="http://img.blog.csdn.net/20170524211529945?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzM4NDc4OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170524211553867?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzM4NDc4OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-06-30T12:31:04.907Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基础语法（一）—标识符、关键字、常变量、数据类型">
+<meta name="twitter:description" content="标识符、关键字、常变量、数据类型">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170524211529945?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzM4NDc4OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="Aileen-zl" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img src="/img/avatar.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Aileen-zl</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">拼着一切代价，奔你的前程！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">归档</a></li>
+                        
+                            <li><a  href="/categories/Java/">Java</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/Aileen-zl/" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="http://weibo.com/aileen815" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/do-while/" style="font-size: 10px;">do-while</a> <a href="/tags/docs命令/" style="font-size: 10px;">docs命令</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/if判断/" style="font-size: 10px;">if判断</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/java基础语法/" style="font-size: 13.33px;">java基础语法</a> <a href="/tags/java环境变量配置/" style="font-size: 10px;">java环境变量配置</a> <a href="/tags/java运行机制/" style="font-size: 10px;">java运行机制</a> <a href="/tags/jdk/" style="font-size: 10px;">jdk</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/switch分支判断/" style="font-size: 10px;">switch分支判断</a> <a href="/tags/while/" style="font-size: 10px;">while</a> <a href="/tags/三元运算符/" style="font-size: 10px;">三元运算符</a> <a href="/tags/位运算符/" style="font-size: 10px;">位运算符</a> <a href="/tags/关键字/" style="font-size: 10px;">关键字</a> <a href="/tags/初识java/" style="font-size: 10px;">初识java</a> <a href="/tags/基本数据类型转换/" style="font-size: 10px;">基本数据类型转换</a> <a href="/tags/左移/" style="font-size: 10px;">左移</a> <a href="/tags/带符号右移/" style="font-size: 10px;">带符号右移</a> <a href="/tags/强制类型转换/" style="font-size: 10px;">强制类型转换</a> <a href="/tags/循环/" style="font-size: 10px;">循环</a> <a href="/tags/数据类型/" style="font-size: 10px;">数据类型</a> <a href="/tags/无符号右移/" style="font-size: 10px;">无符号右移</a> <a href="/tags/标识符/" style="font-size: 10px;">标识符</a> <a href="/tags/比较运算符/" style="font-size: 10px;">比较运算符</a> <a href="/tags/流程控制/" style="font-size: 16.67px;">流程控制</a> <a href="/tags/算数运算符/" style="font-size: 10px;">算数运算符</a> <a href="/tags/自动类型转换/" style="font-size: 10px;">自动类型转换</a> <a href="/tags/逻辑运算符/" style="font-size: 10px;">逻辑运算符</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/u013384788">csdn</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱动漫,爱编程,爱美食,爱电影,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Aileen-zl</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/avatar.png" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Aileen-zl</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">拼着一切代价，奔你的前程！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/categories/Java/">Java</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/Aileen-zl/" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/aileen815" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Java基础语法（一）—标识符、关键字、常变量、数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html" class="article-date">
+      <time datetime="2017-05-21T16:00:00.000Z" itemprop="datePublished">2017-05-22</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础语法（一）—标识符、关键字、常变量、数据类型
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关键字/">关键字</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据类型/">数据类型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/标识符/">标识符</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="一、标识符"><a href="#一、标识符" class="headerlink" title="一、标识符"></a><strong>一、标识符</strong></h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a><strong>1. 定义</strong></h3><blockquote>
+<p>在java语言中，对各种变量、方法和类等要素命名时所使用的字符序列就是标识符。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="2-使用规范"><a href="#2-使用规范" class="headerlink" title="2. 使用规范"></a><strong>2. 使用规范</strong></h3><blockquote>
+<p>（1） 使用26个英文字母大小写，数字0-9，符号 _ 和 $<br>（2） 数字不能开头，且严格区分大小写</p>
+</blockquote>
+<h3 id="3-标识符规范"><a href="#3-标识符规范" class="headerlink" title="3. 标识符规范"></a><strong>3. 标识符规范</strong></h3><p>类名和接口：<br>&#160;&#160;&#160;&#160;首字符大写，如果是多个单词，每一个单词的首字符都要大写。<br>&#160;&#160;&#160;&#160;例如：XxxYyyZzz （PersonDao）</p>
+<p>变量名和方法名：<br>&#160;&#160;&#160;&#160;第一个单词的首字符小写，后续的单词首字符大写。<br>&#160;&#160;&#160;&#160;例如：xxxYyyZzz （addPerson）</p>
+<p>常量：<br>&#160;&#160;&#160;&#160;所有字符都大写，多个单词之间使用下划线_隔开。<br>&#160;&#160;&#160;&#160;例如：XXX_YYY_ZZZ （PERSON_COUNT 人的数量）</p>
+<p>包名：<br>&#160;&#160;&#160;&#160;都小写<br>&#160;&#160;&#160;&#160;例如：xxx.yyy.zzz （com.nun.dao）</p>
+<h2 id="二、关键字"><a href="#二、关键字" class="headerlink" title="二、关键字"></a><strong>二、关键字</strong></h2><h3 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1. 定义"></a><strong>1. 定义</strong></h3><blockquote>
+<p>JDK定义的标识符就是关键字，也是被java语言赋予了特殊含义的单词。 <font color="#D2691E">（特点：关键字中所有字母都为小写）</font></p>
+</blockquote>
+<h3 id="2-常用的关键字"><a href="#2-常用的关键字" class="headerlink" title="2. 常用的关键字"></a><strong>2. 常用的关键字</strong></h3><p><img src="http://img.blog.csdn.net/20170524211529945?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzM4NDc4OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170524211553867?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzM4NDc4OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="三、常量和变量"><a href="#三、常量和变量" class="headerlink" title="三、常量和变量"></a><strong>三、常量和变量</strong></h2><p><strong>题外话：</strong><br>&#160;&#160;&#160;&#160;在了解变量和常量之前呢，我们来说说一些题外话。我们都知道任何程序的运行都离不开内存，都要从硬盘上把程序调到内存里。（下面我们以运行java程序为例）<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(1) 首先我们需要开辟内存空间（对于java来说是JVM）；<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(2) 接下来是提取数据（也就是我们编译好的 .class 文件）；<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(3) 最后是CPU调度运行。<br>&#160;&#160;&#160;&#160;常量和变量就是在内存中做数据交换的一个过程。</p>
+<h3 id="1-常量"><a href="#1-常量" class="headerlink" title="1.常量"></a><strong>1.常量</strong></h3><p>在程序的<font color="#D2691E">运行期</font>数据不发生变化的量就是常量。（这里的运行期我在“初识java”中有提到）</p>
+<h3 id="２-变量"><a href="#２-变量" class="headerlink" title="２.变量"></a><strong>２.变量</strong></h3><p><strong>定义：</strong><br>&#160;&#160;&#160;&#160;在程序运行的过程中，存储可以 变化的数据 的量。（这个量其实就是一个内存空间）</p>
+<p><strong>对变量的通俗的理解：</strong><br>&#160;&#160;&#160;&#160;(1) 内存中的一个存储区域；<br>&#160;&#160;&#160;&#160;(2) 该区域有自己的名称（变量名）和类型（数据类型）；（变量是通过使用变量名来访问这个区域的）<br>&#160;&#160;&#160;&#160;(3) java中每个变量必须先声明，后使用；<br>&#160;&#160;&#160;&#160;(4) 使用变量之前先初始化值；（<font color="#D2691E">类的属性不需要初始化值</font>）</p>
+<p><strong>定义变量的格式：</strong><br>&#160;&#160;&#160;&#160;语法：数据类型  变量名 = 初始化值；<br>&#160;&#160;&#160;&#160;例如：byte age = 10; （意思是：在运行时，会在内存中开辟一个字节的空间，这个空间的名字叫age，其存的值为10）<br>&#160;&#160;&#160;&#160;变量的定义位置：定义在方法中或者是语句块中；</p>
+<p><strong>注意：</strong><br>&#160;&#160;&#160;&#160;在下文介绍的8种数据类型是有默认值的，这个默认值如果在变量中是不能使用的，必须是在类的属性中使用，因为类的属性可以不赋初始值。<br>&#160;&#160;&#160;&#160;8种基本数据作为类的属性时的初始值如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">基本数据类型</th>
+<th style="text-align:center">初始值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">0.0</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">0.0</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">‘\u0000’</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四、数据类型"><a href="#四、数据类型" class="headerlink" title="四、数据类型"></a><strong>四、数据类型</strong></h2><p>变量的分类按数据类型进行。对于每一种数据都定义了明确的具体数据类型，在内存中分配了不同大小的内存空间。<br>java的数据类型分为 <font color="#D2691E">基本数据类型</font> 和 <font color="#D2691E">引用数据类型</font>。</p>
+<h3 id="1-基本数据类型有8种"><a href="#1-基本数据类型有8种" class="headerlink" title="1.基本数据类型有8种"></a><strong>1.基本数据类型有8种</strong></h3><p><strong>整数类型：</strong><br>&#160;&#160;&#160;&#160;字节型（byte）<br>&#160;&#160;&#160;&#160;短整型（short）<br>&#160;&#160;&#160;&#160;长整型（long）<br>&#160;&#160;&#160;&#160;整型（int）</p>
+<p><strong>小数类型：</strong><br>&#160;&#160;&#160;&#160;单精度（float）<br>&#160;&#160;&#160;&#160;双精度（double）</p>
+<p><strong>字符类型（char）：</strong><br>&#160;&#160;&#160;&#160;char只能表示一个字符（英文、中文、标点符号）;<br>&#160;&#160;&#160;&#160;可以表示转义字符； 例如：char ch1 = ‘\t’;</p>
+<p><strong>布尔类型（boolean）：</strong><br>&#160;&#160;&#160;&#160;boolean类型只能够取值为 true 或 false ；不能取值 null。</p>
+<h4 id="1-字节型（byte）"><a href="#1-字节型（byte）" class="headerlink" title="(1) 字节型（byte）"></a><strong>(1) 字节型（byte）</strong></h4><p>&#160;&#160;&#160;&#160; 占用存储空间：1个字节<br>&#160;&#160;&#160;&#160; 表数范围：-128~127<br>&#160;&#160;&#160;&#160; 一个字节 = 8位；<br>&#160;&#160;&#160;&#160; 最大值：0 1 1 1 1 1 1 1 （这是一个字节，0 为符号位）；<br>&#160;&#160;&#160;&#160; 字节型是最小的整数类型，用byte来表示，其大小占1个字节。</p>
+<h4 id="2-短整型（short）"><a href="#2-短整型（short）" class="headerlink" title="(2) 短整型（short）"></a><strong>(2) 短整型（short）</strong></h4><p>&#160;&#160;&#160;&#160; 占用存储空间：2个字节<br>&#160;&#160;&#160;&#160; 表数范围：-2^15~2^15-1</p>
+<h4 id="3-整型（int）"><a href="#3-整型（int）" class="headerlink" title="(3) 整型（int）"></a><strong>(3) 整型（int）</strong></h4><p>&#160;&#160;&#160;&#160; 占用存储空间：4个字节<br>&#160;&#160;&#160;&#160; 表数范围：-2^31~2^31-1<br>&#160;&#160;&#160;&#160; 补充：byte 和 short 计算时，产生的结果默认为 int 型</p>
+<h4 id="4-长整型（long）"><a href="#4-长整型（long）" class="headerlink" title="(4) 长整型（long）"></a><strong>(4) 长整型（long）</strong></h4><p>&#160;&#160;&#160;&#160; 占用存储空间：8个字节<br>&#160;&#160;&#160;&#160; 表数范围：-2^63~2^63-1</p>
+<h4 id="5-双精度（double）"><a href="#5-双精度（double）" class="headerlink" title="(5) 双精度（double）"></a><strong>(5) 双精度（double）</strong></h4><p>&#160;&#160;&#160;&#160; 占用存储空间：8个字节<br>&#160;&#160;&#160;&#160; 表数范围：-1.798E308~1.798E308<br>&#160;&#160;&#160;&#160; 补充：如果整型数据在计算的时候 结果出现了小数，结果类型默认为 double</p>
+<h4 id="6-单精度（float）"><a href="#6-单精度（float）" class="headerlink" title="(6) 单精度（float）"></a><strong>(6) 单精度（float）</strong></h4><p>&#160;&#160;&#160;&#160; 占用存储空间：4个字节<br>&#160;&#160;&#160;&#160; 表数范围：-3.403E38~3.403E38<br>&#160;&#160;&#160;&#160; 补充：3.403E38 是科学计数法，相当于 3.403*10^38<br>&#160;&#160;&#160;&#160; <font color="#D2691E">注意：float 在定义的时候一定要在初始值后加 f，否则会提示精度损失的报错</font><br>&#160;&#160;&#160;&#160; <font color="#D2691E">例如：float price = 20.6f；</font></p>
+<h4 id="7-字符型（char）"><a href="#7-字符型（char）" class="headerlink" title="(7) 字符型（char）"></a><strong>(7) 字符型（char）</strong></h4><p>&#160;&#160;&#160;&#160; 占用存储空间：2个字节</p>
+<h3 id="2-引用数据类型"><a href="#2-引用数据类型" class="headerlink" title="2.引用数据类型"></a><strong>2.引用数据类型</strong></h3><p><strong>类（class）；</strong> &#160;&#160; <strong>接口（interface）；</strong> &#160;&#160; <strong>数组（[]）</strong></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html">Java基础语法（一）—标识符、关键字、常变量、数据类型</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Aileen-zl 的个人博客">Aileen-zl</a></p>
+        <p><span>发布时间:</span>2017年05月22日 - 00时00分</p>
+        <p><span>最后更新:</span>2017年06月30日 - 20时31分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html" title="Java基础语法（一）—标识符、关键字、常变量、数据类型">http://Aileen-zl.github.io/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Aileen-zl.github.io/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html　　作者: Aileen-zl" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/Java/Java基础语法（二）—基本数据类型转换.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java基础语法（二）—基本数据类型转换
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/Java/java开发环境的搭建.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java开发环境的搭建</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、标识符"><span class="toc-number">1.</span> <span class="toc-text">一、标识符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义"><span class="toc-number">1.1.</span> <span class="toc-text">1. 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用规范"><span class="toc-number">1.2.</span> <span class="toc-text">2. 使用规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-标识符规范"><span class="toc-number">1.3.</span> <span class="toc-text">3. 标识符规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、关键字"><span class="toc-number">2.</span> <span class="toc-text">二、关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-定义-1"><span class="toc-number">2.1.</span> <span class="toc-text">1. 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-常用的关键字"><span class="toc-number">2.2.</span> <span class="toc-text">2. 常用的关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、常量和变量"><span class="toc-number">3.</span> <span class="toc-text">三、常量和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-常量"><span class="toc-number">3.1.</span> <span class="toc-text">1.常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#２-变量"><span class="toc-number">3.2.</span> <span class="toc-text">２.变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、数据类型"><span class="toc-number">4.</span> <span class="toc-text">四、数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本数据类型有8种"><span class="toc-number">4.1.</span> <span class="toc-text">1.基本数据类型有8种</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-字节型（byte）"><span class="toc-number">4.1.1.</span> <span class="toc-text">(1) 字节型（byte）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-短整型（short）"><span class="toc-number">4.1.2.</span> <span class="toc-text">(2) 短整型（short）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-整型（int）"><span class="toc-number">4.1.3.</span> <span class="toc-text">(3) 整型（int）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-长整型（long）"><span class="toc-number">4.1.4.</span> <span class="toc-text">(4) 长整型（long）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-双精度（double）"><span class="toc-number">4.1.5.</span> <span class="toc-text">(5) 双精度（double）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-单精度（float）"><span class="toc-number">4.1.6.</span> <span class="toc-text">(6) 单精度（float）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-字符型（char）"><span class="toc-number">4.1.7.</span> <span class="toc-text">(7) 字符型（char）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-引用数据类型"><span class="toc-number">4.2.</span> <span class="toc-text">2.引用数据类型</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'cyt5owCOY',
+      conf: '9ef6a7325ac82182d3877014a22f85e8'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/Java/Java基础语法（二）—基本数据类型转换.html" title="上一篇: Java基础语法（二）—基本数据类型转换">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/Java/java开发环境的搭建.html" title="下一篇: java开发环境的搭建">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Java/程序流程控制（三）--循环（while，do..while，for）.html">程序流程控制（三）--循环（while，do..while，for）</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/程序流程控制（二）--三元运算符.html">程序流程控制（二）--三元运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/程序流程控制（一）— if判断、switch分支判断.html">程序流程控制（一）— if判断、switch分支判断</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/Java基础语法（五）—位运算符.html">Java基础语法（五）—位运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/Java基础语法（四）—运算符之逻辑运算符.html">Java基础语法（四）—运算符之逻辑运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/Java基础语法（三）—运算符.html">Java基础语法（三）—运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/Java基础语法（二）—基本数据类型转换.html">Java基础语法（二）—基本数据类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html">Java基础语法（一）—标识符、关键字、常变量、数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/java开发环境的搭建.html">java开发环境的搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/初识java.html">初识java</a></li><li class="post-list-item"><a class="post-list-link" href="/Java/docs下的常用命令.html">docs下的常用命令</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Aileen-zl
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/Aileen-zl" target="_blank">Blog</a> by Aileen-zl
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >忍者到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 4;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
