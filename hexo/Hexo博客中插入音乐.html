@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://osekt2slf.bkt.clouddn.com/blog/images/music2.png">
 <meta property="og:image" content="http://osekt2slf.bkt.clouddn.com/blog/images/daima.png">
 <meta property="og:image" content="http://osekt2slf.bkt.clouddn.com/blog/images/music3.png">
-<meta property="og:updated_time" content="2017-07-01T13:36:46.984Z">
+<meta property="og:updated_time" content="2017-07-03T08:42:46.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客中插入音乐">
 <meta name="twitter:description" content="hexo搭建个人博客中插入音乐播放器">
@@ -191,6 +191,10 @@
                             
                                 <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
                             
+                                <a class="fl mail"  target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1eTh5uDl7OPg4eWVpKT7trq4" title="mail">mail</a>
+                            
+                                <a class="fl csdn"  target="_blank" href="http://blog.csdn.net/u013384788" title="csdn">csdn</a>
+                            
                         </ul>
                     </nav>
                 </section>
@@ -272,6 +276,10 @@
                     
                         <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
                     
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1eTh5uDl7OPg4eWVpKT7trq4" title="mail">mail</a>
+                    
+                        <a class="csdn" target="_blank" href="http://blog.csdn.net/u013384788" title="csdn">csdn</a>
+                    
                 </div>
             </nav>
         </header>                
@@ -322,7 +330,7 @@
       
           
         <h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a><strong>1. 前言</strong></h3><p>&#160;&#160;&#160;&#160; 正所谓没有逼格的博客不是好博客，而在自己搭建的博客里插入音乐或者视频能秒秒钟拉高博客的格调。Hexo作为一款优秀的静态博客生成器，当然也少不了这些吊炸天的功能。</p>
-<h3 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a><strong>2. 准备工作</strong></h3><p>&#160;&#160;&#160;&#160; 准备工作当然是你得把自己的博客给搭建好了。在这里需要提一句，不管是搭建博客，还是后期写markdown的文章，都少不了打开各种格式文件的工具，要知道一个好的工具能让我们做事事半功倍。<br>&#160;&#160;&#160;&#160; 修改主题文件里涉及到的各种文件，我都只使用了 <code>sublime</code>，这款软件不管是从界面简化程度、颜值、快捷键、还是软件大小都让我爱不释手，以至于最后我用markdown写博客的时候都在使用它，你可能会问：markdown写博客不需要边写边看渲染效果吗？其实这个渲染效果没必要随时看，只需要最后写好的时候看看，再对需要修改的地方进行微调就好，因为当非常熟悉了markdown的语法以及对应的实现效果之后，都不太去看最后渲染出来的效果。当然最初编写的时候我都是在csdn上写博客的时对markdown语法慢慢熟练起来，线下编写我也使用过MP、马克飞象等工具，但是顺手程度都感觉不如 sublime。如果实在想编写和渲染同时进行的话，可以推荐一款在线markdown编辑器：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">在线markdown编辑器</a> 优点我就不多说了，因人而异，自行体验。</p>
+<h3 id="2-准备工作"><a href="#2-准备工作" class="headerlink" title="2. 准备工作"></a><strong>2. 准备工作</strong></h3><p>&#160;&#160;&#160;&#160; 准备工作当然是你得把自己的博客给搭建好了。在这里需要提一句，不管是搭建博客，还是后期写markdown的文章，都少不了打开各种格式文件的工具，要知道一个好的工具能让我们做事事半功倍。<br>&#160;&#160;&#160;&#160; 修改主题文件里涉及到的各种文件，我都只使用了 <code>sublime</code>，这款软件不管是从界面简化程度、颜值、快捷键、还是软件大小都让我爱不释手，以至于最后我用markdown写博客的时候都在使用它，你可能会问：markdown写博客不需要边写边看渲染效果吗？其实这个渲染效果没必要随时看，只需要最后写好的时候look一下，再对需要修改的地方进行微调就好，因为当非常熟悉了markdown的语法之后，右侧区域的渲染效果就变得有点鸡肋。当然最初编写的时候我都是在csdn上写博客时对markdown语法逐渐熟练起来，线下编写也曾使用过MP、马克飞象等工具，但是顺手程度都感觉不如sublime，如果实在想编写和渲染同时进行的话，可以推荐一款在线markdown编辑器：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">在线markdown编辑器</a> 优点我就不多说了，因人而异，自行体验。</p>
 <h3 id="3-装插件"><a href="#3-装插件" class="headerlink" title="3. 装插件"></a><strong>3. 装插件</strong></h3><p>&#160;&#160;&#160;&#160; 首先我们需要通过命令行安装以下两款插件（当然装一个就可以了，如果一个实现不了再装另一个），这两款插件我们都可以从hexo的官方网站上查询到：<a href="https://hexo.io/plugins/" target="_blank" rel="external">插件</a></p>
 <blockquote>
 <p>hexo-tag-aplayer<br>hexo-tag-dplayer</p>
@@ -334,11 +342,11 @@
 <p>&#160;&#160;&#160;&#160; 运行之后如图所示：</p>
 <p><img src="http://osekt2slf.bkt.clouddn.com/blog/images/mingling.png" alt=""></p>
 <p>&#160;&#160;&#160;&#160; 此时你会在 <code>blog/node_modules</code> 目录下发现有两个<code>aplayer</code> 和 <code>`dplayer</code> 的文件夹。（这个blog文件是你在搭建博客时自定义命名的文件）</p>
-<h3 id="4-添加音乐"><a href="#4-添加音乐" class="headerlink" title="4. 添加音乐"></a><strong>4. 添加音乐</strong></h3><p>&#160;&#160;&#160;&#160; 在我的博客中我选择添加的是网易云音乐。首先我们打开网易云音乐的主页，然后搜索你喜欢的音乐，然后进入音乐的详情页面，点击 <code>生成外链播放器</code> ：（如下图所示）</p>
+<h3 id="4-添加音乐"><a href="#4-添加音乐" class="headerlink" title="4. 添加音乐"></a><strong>4. 添加音乐</strong></h3><p>&#160;&#160;&#160;&#160; 在我的博客中我选择添加的是网易云音乐。首先打开网易云音乐的主页，然后搜索你喜欢的music，接着进入音乐的详情页面，点击 <code>生成外链播放器</code> ：（如下图所示）</p>
 <p><img src="http://osekt2slf.bkt.clouddn.com/blog/images/music1.png" alt=""></p>
 <p>&#160;&#160;&#160;&#160; 选择 iframe 插件，复制如下图所示的代码：</p>
 <p><img src="http://osekt2slf.bkt.clouddn.com/blog/images/music2.png" alt=""></p>
-<p>&#160;&#160;&#160;&#160; 以我自己的博客为例吧：因为我想把这个播放器放在博客页面的左侧栏里，所以就把以上代码复制到主题文件夹下实现左侧栏的那个模板文件里，也就是 <code>blog\themes\black-blue\layout\_partial\left-col.ejs</code> 这个 <code>left-col.ejs</code> 文件，（需要值得注意的是，因为所使用的主题不同，可能文件也就不一样，但是大致原理就如刚才我所提到的：想放在哪个区域，就把代码复制到实现那块区域的模板文件里）。<br>&#160;&#160;&#160;&#160; 为了使得页面更加美观，我给这块代码自定义加了 div，这样方便给播放器设定样式，只要稍微懂一点前端知识的筒子，都可以随心所欲的加 css样式。这里需要提一下，播放器设定好后，默认是：打开页面即播放音乐；如果不喜欢默认打开音乐的筒子，也可以通过把代码中的 <code>auto=1</code> 修改为 <code>auto=0</code> 来关闭它。<br><img src="http://osekt2slf.bkt.clouddn.com/blog/images/daima.png" alt=""></p>
+<p>&#160;&#160;&#160;&#160; 以我自己的博客为例吧：因为我想把这个播放器放在博客页面的左侧栏里，所以就把以上代码复制到主题文件夹下实现左侧栏的那个模板文件里，也就是<code>blog\themes\black-blue\layout\_partial\left-col.ejs</code>这个<code>left-col.ejs</code>文件，（需要值得注意的是，因为所使用的主题不同，可能文件也就不一样，但是大致原理就如刚才我所提到的：想放在哪个区域，就把代码复制到实现那块区域的模板文件里）。<br>&#160;&#160;&#160;&#160; 为了使得页面更加美观，我给这块代码自定义加了 div，这样方便给播放器设定样式，只要稍微懂一点前端知识的筒子，都可以随心所欲的加 css样式。这里需要提一下，播放器设定好后，默认是：打开页面即播放音乐；如果不喜欢默认打开音乐的筒子，也可以通过把代码中的 <code>auto=1</code> 修改为 <code>auto=0</code> 来关闭它。<br><img src="http://osekt2slf.bkt.clouddn.com/blog/images/daima.png" alt=""></p>
 <h3 id="5-实现效果"><a href="#5-实现效果" class="headerlink" title="5. 实现效果"></a><strong>5. 实现效果</strong></h3><p><img src="http://osekt2slf.bkt.clouddn.com/blog/images/music3.png" alt=""></p>
 
       
@@ -351,7 +359,7 @@
         <p><span>本文标题:</span><a  href="/hexo/Hexo博客中插入音乐.html">Hexo博客中插入音乐</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 Aileen-zl 的个人博客">Aileen-zl</a></p>
         <p><span>发布时间:</span>2017年07月01日 - 00时00分</p>
-        <p><span>最后更新:</span>2017年07月01日 - 21时36分</p>
+        <p><span>最后更新:</span>2017年07月03日 - 16时42分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/hexo/Hexo博客中插入音乐.html" title="Hexo博客中插入音乐">http://aileen.top/hexo/Hexo博客中插入音乐.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://aileen.top/hexo/Hexo博客中插入音乐.html　　作者: Aileen-zl" title=""></span>
