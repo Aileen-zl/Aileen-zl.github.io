@@ -1,3 +1,12 @@
 http://aileen.top/hexo/Hexo博客中插入音乐.html
 http://aileen.top/Java/程序流程控制（三）--循环（while，do..while，for）.html
 http://aileen.top/Java/程序流程控制（二）--三元运算符.html
+http://aileen.top/Java/程序流程控制（一）— if判断、switch分支判断.html
+http://aileen.top/Java/Java基础语法（五）—位运算符.html
+http://aileen.top/Java/Java基础语法（四）—运算符之逻辑运算符.html
+http://aileen.top/Java/Java基础语法（三）—运算符.html
+http://aileen.top/Java/Java基础语法（二）—基本数据类型转换.html
+http://aileen.top/Java/Java基础语法（一）—标识符、关键字、常变量、数据类型.html
+http://aileen.top/Java/java开发环境的搭建.html
+http://aileen.top/Java/初识java.html
+http://aileen.top/Java/docs下的常用命令.html
